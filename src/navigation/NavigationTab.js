@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 const TabLayout = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Deals"
       screenOptions={{
         activeTintColor: '#e91e63',
         labelStyle: {
@@ -72,7 +72,7 @@ const TabLayout = () => {
         options={{
           tabBarLabel: 'More',
           tabBarIcon: (color, size) => (
-            <Icon name="bars" size={23} color={color} />
+            <Icon name="plus" size={23} color={color} />
           ),
         }}
       />
@@ -91,7 +91,7 @@ function renderImageMenu(image) {
         marginLeft: 10,
         marginRight: 10,
       }}
-      source={require('../../assets/bedu.png')}
+      source={require('../../assets/agtech_logo.png')}
     />
   );
 }

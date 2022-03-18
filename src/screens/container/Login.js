@@ -30,7 +30,7 @@ const Login = () => {
   function login(emailUser, passwordUser) {
     //Login exitoso
     setLoading(false);
-    navigation.navigate('Home');
+    navigation.navigate('TabLayout');
   }
 
   return (
