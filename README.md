@@ -1,2 +1,0 @@
-# AppReactNativeCli-Bedu
-AppReactNativeCli-Bedu
