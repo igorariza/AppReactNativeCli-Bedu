@@ -1,19 +1,19 @@
-import { routes } from '@/controllers/routes';
-import { strings } from '@/localization';
+import {routes} from '@/controllers/routes';
+import {strings} from '@/localization';
 
 export class UserController {
   constructor(networkService) {
     this.networkService = networkService;
   }
 
-  login({ username, password, demoMode }) {
+  login({username, password, demoMode}) {
     if (demoMode) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           if (username && password) {
-            resolve({ data: { user: { username } } });
+            resolve({data: {user: {username}}});
           } else {
-            reject({ data: { error: strings.login.invalidCredentials } });
+            reject({data: {error: strings.login.invalidCredentials}});
           }
         }, 250);
       });
@@ -22,13 +22,13 @@ export class UserController {
     return this.networkService.request({
       method: 'POST',
       url: routes.authentication.login,
-      data: { username, password },
+      data: {username, password},
     });
   }
 
-  logout({ demoMode } = {}) {
+  logout({demoMode} = {}) {
     if (demoMode) {
-      return new Promise((resolve) => {
+      return new Promise(resolve => {
         setTimeout(resolve, 250);
       });
     }

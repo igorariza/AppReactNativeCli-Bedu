@@ -1,11 +1,11 @@
-import { strings } from '@/localization';
+import {strings} from '@/localization';
 
 export const mockLoginNetworkService = {
   setAccessToken(_token) {},
-  request({ data }) {
+  request({data}) {
     if (data.password === 'invalidPassword') {
       const error = strings.login.invalidCredentials;
-      throw { data: { error } };
+      throw {data: {error}};
     }
 
     const user = {
@@ -14,7 +14,7 @@ export const mockLoginNetworkService = {
       username: data.username,
     };
 
-    return { data: { user } };
+    return {data: {user}};
   },
 };
 
