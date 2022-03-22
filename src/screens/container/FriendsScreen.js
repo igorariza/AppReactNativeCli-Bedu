@@ -14,14 +14,14 @@ import {StyleSheet, Text, View, Button} from 'react-native';
 
 const storeData = async value => {
   try {
-    await AsyncStorage.setItem('@storage_Key', value);
+    await AsyncStorage.setItem('friend', value);
   } catch (e) {
     // saving error
   }
 };
 
 const FriendsScreen = props => {
-  console.log('FriendsScreen props: ', props);
+  //console.log('FriendsScreen props: ', props);
   return (
     <View style={styles.container}>
       <Text>Select Subjects Below!</Text>
@@ -37,7 +37,7 @@ const FriendsScreen = props => {
             });
 
             storeData(friend);
-            //console.log('friend: ', friend);
+            console.log('friend: ', friend);
             props.navigation.navigate('Home');
           }}
         />

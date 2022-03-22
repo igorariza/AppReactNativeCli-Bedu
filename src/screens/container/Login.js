@@ -12,21 +12,22 @@ import {
 } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 import {useNavigation} from '@react-navigation/native';
+import {useFormik} from 'formik';
 
 const Login = () => {
-  const [email, setEmail] = useState();
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+
+    onSubmit: values => {
+      // eslint-disable-next-line no-alert
+      login(values.email, values.password);
+    },
+  });
   const [loading, setLoading] = useState();
-  const [password, setPassword] = useState();
   const navigation = useNavigation();
-  const handleLogin = () => {
-    setLoading(true);
-    if (email == null || email == '' || password == null || password == '') {
-      setLoading(false);
-      Alert.alert('Debes escribir los datos de ingreso');
-    } else {
-      login(email, password);
-    }
-  };
   function login(emailUser, passwordUser) {
     //Login exitoso
     setLoading(false);
@@ -47,18 +48,18 @@ const Login = () => {
             style={styles.input}
             placeholder="Email users"
             placeholderTextColor="white"
-            onChangeText={text => setEmail(text)}
-            defaultValue={email}
+            onChangeText={formik.handleChange('email')}
+            value={formik.values.email}
           />
           <TextInput
             style={styles.input}
             placeholder="Contraseña"
             placeholderTextColor="white"
             secureTextEntry={true}
-            onChangeText={text => setPassword(text)}
-            defaultValue={password}
+            onChangeText={formik.handleChange('password')}
+            value={formik.values.password}
           />
-          <TouchableOpacity onPress={handleLogin} style={styles.button}>
+          <TouchableOpacity onPress={formik.handleSubmit} style={styles.button}>
             {loading ? (
               <Spinner
                 visible={true}

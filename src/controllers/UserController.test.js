@@ -1,5 +1,5 @@
-import { routes } from '@/controllers/routes';
-import { UserController } from '@/controllers/UserController';
+import {routes} from '@/controllers/routes';
+import {UserController} from '@/controllers/UserController';
 
 describe('UserController', () => {
   describe('login', () => {
@@ -9,7 +9,7 @@ describe('UserController', () => {
         password: 'password',
       };
 
-      const fakeNetworkService = { request: jest.fn() };
+      const fakeNetworkService = {request: jest.fn()};
       const userController = new UserController(fakeNetworkService);
       await userController.login(credentials);
 
@@ -23,7 +23,7 @@ describe('UserController', () => {
 
   describe('logout', () => {
     it('should make the logout request', async () => {
-      const fakeNetworkService = { request: jest.fn() };
+      const fakeNetworkService = {request: jest.fn()};
       const userController = new UserController(fakeNetworkService);
       await userController.logout();
 
