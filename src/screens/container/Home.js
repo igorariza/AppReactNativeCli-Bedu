@@ -1,11 +1,19 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {connect} from 'react-redux';
+import {StyleSheet, Text, View, Button} from 'react-native';
 
-const Home = () => (
-  <View style={styles.container}>
-    <Text style={styles.title}>React Native</Text>
-  </View>
-);
+const Home = props => {
+  return (
+    <View style={styles.container}>
+      <Text>You have {props.friends.current.length} friends.</Text>
+
+      <Button
+        title="Add some friends"
+        onPress={() => props.navigation.navigate('Friends')}
+      />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -26,4 +34,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-export default Home;
+
+const mapStateToProps = state => {
+  const {friends} = state;
+  return {friends};
+};
+
+export default connect(mapStateToProps)(Home);
