@@ -29,12 +29,12 @@ const TabLayout = () => {
           headerShown: false,
           tabBarLabel: 'Home',
           tabBarIcon: (color, size) => (
-            <Icon name="home" size={23} color={color} />
+            <Icon name="beer" size={23} color={color}/>
           ),
         }}
       />
       {/* Tab-SearchScreen */}
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Friends"
         component={FriendsScreen}
         options={{
@@ -43,7 +43,7 @@ const TabLayout = () => {
             <Icon name="home" size={23} color={color} />
           ),
         }}
-      />
+      /> */}
       {/* Tab-DealsScreen */}
       <Tab.Screen
         name="Deals"
@@ -55,7 +55,7 @@ const TabLayout = () => {
         component={NavigationHome}
       />
       {/* Tab-StrainsScreen */}
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Strains"
         component={StrainsScreen}
         options={{
@@ -64,7 +64,7 @@ const TabLayout = () => {
             <Icon name="leaf" size={23} color={color} />
           ),
         }}
-      />
+      /> */}
       {/* Tab-ProfileScreen */}
       <Tab.Screen
         name="More"
