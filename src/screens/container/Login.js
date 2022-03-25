@@ -30,6 +30,12 @@ const Login = () => {
   const [loading, setLoading] = useState();
   const navigation = useNavigation();
   function login(emailUser, passwordUser) {
+    
+    if (emailUser == null || emailUser == '' || passwordUser == null || passwordUser == '') {
+      alert('Ingrese datos de inicio de sessión')
+      return;
+    }
+
     //Login exitoso
     setLoading(false);
     navigation.navigate('DrawerNavigation');

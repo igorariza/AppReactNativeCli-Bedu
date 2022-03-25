@@ -3,9 +3,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Image} from 'react-native';
 import NavigationHome from './NavigationHome';
-//import SearchScreen from '../screens/components/search/search';
-import StrainsScreen from '../screens/components/strains/strains';
-import FriendsScreen from '../screens/container/FriendsScreen';
+import Perfil from '../screens/container/Perfil'
+import MisViajes from '../screens/container/MisViajes'
+
 
 const Tab = createBottomTabNavigator();
 const TabLayout = () => {
@@ -27,53 +27,27 @@ const TabLayout = () => {
         component={NavigationHome}
         options={{
           headerShown: false,
-          tabBarLabel: 'Home',
-          tabBarIcon: (color, size) => (
-            <Icon name="home" size={23} color={color} />
-          ),
+          tabBarLabel: '',
+          tabBarIcon: () => renderImageMisViajes(),
         }}
-      />
-      {/* Tab-SearchScreen */}
-      <Tab.Screen
-        name="Friends"
-        component={FriendsScreen}
-        options={{
-          tabBarLabel: 'Friends',
-          tabBarIcon: (color, size) => (
-            <Icon name="home" size={23} color={color} />
-          ),
-        }}
-      />
+      />      
       {/* Tab-DealsScreen */}
       <Tab.Screen
         name="Deals"
         options={{
           headerShown: false,
           tabBarLabel: '',
-          tabBarIcon: () => renderImageMenu(),
+          tabBarIcon: () => renderImageViaje(),
         }}
         component={NavigationHome}
-      />
-      {/* Tab-StrainsScreen */}
-      <Tab.Screen
-        name="Strains"
-        component={StrainsScreen}
-        options={{
-          tabBarLabel: 'Strains',
-          tabBarIcon: (color, size) => (
-            <Icon name="leaf" size={23} color={color} />
-          ),
-        }}
-      />
+      />      
       {/* Tab-ProfileScreen */}
       <Tab.Screen
         name="More"
         component={NavigationHome}
         options={{
-          tabBarLabel: 'More',
-          tabBarIcon: (color, size) => (
-            <Icon name="plus" size={23} color={color} />
-          ),
+          tabBarLabel: '',
+          tabBarIcon: () => renderImageSetting(),
         }}
       />
     </Tab.Navigator>
@@ -81,17 +55,47 @@ const TabLayout = () => {
 };
 export default TabLayout;
 
-function renderImageMenu(image) {
+function renderImageViaje(image) {
   return (
     <Image
       style={{
         width: 30,
         height: 30,
-        top: -10,
+        top: 10,
         marginLeft: 10,
         marginRight: 10,
       }}
-      source={require('../../assets/agtech_logo.png')}
+      source={require('../../assets/ic_viajes/de-viaje.png')}
+    />
+  );
+}
+
+function renderImageMisViajes(image) {
+  return (
+    <Image
+      style={{
+        width: 30,
+        height: 30,
+        top: 10,
+        marginLeft: 10,
+        marginRight: 10,
+      }}
+      source={require('../../assets/ic_home/camara.png')}
+    />
+  );
+}
+
+function renderImageSetting(image) {
+  return (
+    <Image
+      style={{
+        width: 30,
+        height: 30,
+        top: 10,
+        marginLeft: 10,
+        marginRight: 10,
+      }}
+      source={require('../../assets/ic_settings/gear.png')}
     />
   );
 }

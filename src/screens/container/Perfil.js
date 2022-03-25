@@ -1,15 +1,13 @@
 import React, {Fragment} from 'react';
 import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Store from '../../store/store';
-import Header from '../../sections/components/header';
-import ProductList from '../../sections/container/ProductList';
 import {useNavigation} from '@react-navigation/native';
 
-const Home = props => {
+const Perfil = props => {
   const navigation = useNavigation();  
   return (
-    <Fragment>      
-      <ProductList />
+    <Fragment>     
+        <label>settings</label>
     </Fragment>
   );
 };
@@ -17,16 +15,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: '#e350a8',
     borderRadius: 5,
-  },
-  txtusername: {
-    backgroundColor: '#99c84a',
-    borderRadius: 5,
-    color: 'white',
-    padding: 5,
-    fontSize: 15,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
+  },  
   buttonLabel: {
     color: 'white',
     padding: 5,
@@ -36,4 +25,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Perfil;
