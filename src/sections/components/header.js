@@ -10,6 +10,7 @@ function Header(props) {
             source={require('../../../assets/bedu.png')}
             style={styles.logo}
           />
+          <View style={styles.right}>{props.children}</View>
         </View>
       </SafeAreaView>
     </View>
@@ -18,14 +19,19 @@ function Header(props) {
 
 const styles = StyleSheet.create({
   logo: {
-    width: 180,
-    height: 60,
+    width: 80,
+    height: 26,
     resizeMode: 'contain',
   },
   container: {
     paddingVertical: 10,
     paddingHorizontal: 10,
     flexDirection: 'row',
+  },
+  right: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
   },
 });
 

@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createSwitchNavigator} from '@react-navigation/compat';
 import Loading from './src/sections/components/loading';
 import Login from './src/screens/container/Login';
-import TabLayout from './src/navigation/NavigationTab';
+import DrawerNavigation from './src/navigation/DrawerNavigation';
 import friendsReducer from './src/reducers/FriendsReducer';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
@@ -22,7 +22,7 @@ function App(props) {
 const SwitchNavigator = createSwitchNavigator(
   {
     Loading: {screen: Loading},
-    TabLayout: TabLayout,
+    DrawerNavigation: DrawerNavigation,
     Login: Login,
   },
   {
