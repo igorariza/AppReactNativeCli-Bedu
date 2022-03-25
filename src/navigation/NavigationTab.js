@@ -1,11 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Image} from 'react-native';
 import NavigationHome from './NavigationHome';
-//import SearchScreen from '../screens/components/search/search';
-import StrainsScreen from '../screens/components/strains/strains';
-import FriendsScreen from '../screens/container/FriendsScreen';
 
 const Tab = createBottomTabNavigator();
 const TabLayout = () => {
@@ -28,22 +24,15 @@ const TabLayout = () => {
         options={{
           headerShown: false,
           tabBarLabel: 'Home',
-          tabBarIcon: (color, size) => (
-            <Icon name="home" size={23} color={color} />
+          tabBarIcon: ({color}) => (
+            <Image
+              source={require('../../assets/ic_home/ic_home.png')}
+              style={{width: 30, height: 30}}
+            />
           ),
         }}
       />
-      {/* Tab-SearchScreen */}
-      <Tab.Screen
-        name="Friends"
-        component={FriendsScreen}
-        options={{
-          tabBarLabel: 'Friends',
-          tabBarIcon: (color, size) => (
-            <Icon name="home" size={23} color={color} />
-          ),
-        }}
-      />
+
       {/* Tab-DealsScreen */}
       <Tab.Screen
         name="Deals"
@@ -54,25 +43,18 @@ const TabLayout = () => {
         }}
         component={NavigationHome}
       />
-      {/* Tab-StrainsScreen */}
-      <Tab.Screen
-        name="Strains"
-        component={StrainsScreen}
-        options={{
-          tabBarLabel: 'Strains',
-          tabBarIcon: (color, size) => (
-            <Icon name="leaf" size={23} color={color} />
-          ),
-        }}
-      />
+
       {/* Tab-ProfileScreen */}
       <Tab.Screen
         name="More"
         component={NavigationHome}
         options={{
           tabBarLabel: 'More',
-          tabBarIcon: (color, size) => (
-            <Icon name="plus" size={23} color={color} />
+          tabBarIcon: ({color}) => (
+            <Image
+              source={require('../../assets/icons-more.png')}
+              style={{width: 30, height: 30}}
+            />
           ),
         }}
       />
