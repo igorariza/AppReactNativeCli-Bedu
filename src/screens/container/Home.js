@@ -1,43 +1,50 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import React, {Fragment} from 'react';
+import {Text, TouchableOpacity, StyleSheet} from 'react-native';
+import Store from '../../store/store';
+import Header from '../../sections/components/header';
+import ProductList from '../../sections/container/ProductList';
+import {useNavigation} from '@react-navigation/native';
 
 const Home = props => {
+  const navigation = useNavigation();
+  const handleClose = () => {
+    Store.remove({
+      key: 'userLogin',
+    });
+    navigation.navigate('Login');
+  };
   return (
-    <View style={styles.container}>
-      <Text>You have {props.friends.current.length} friends.</Text>
-
-      <Button
-        title="Add some friends"
-        onPress={() => props.navigation.navigate('Friends')}
-      />
-    </View>
+    <Fragment>
+      <Header>
+        <TouchableOpacity onPress={handleClose} style={styles.button}>
+          <Text style={styles.buttonLabel}>Cerrar Sesión</Text>
+        </TouchableOpacity>
+      </Header>
+      <ProductList />
+    </Fragment>
   );
 };
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 24,
-    backgroundColor: '#eaeaea',
+  button: {
+    backgroundColor: '#e350a8',
+    borderRadius: 5,
   },
-  title: {
-    marginTop: 16,
-    paddingVertical: 8,
-    borderWidth: 4,
-    borderColor: '#20232a',
-    borderRadius: 6,
-    backgroundColor: '#61dafb',
-    color: '#20232a',
-    textAlign: 'center',
-    fontSize: 30,
+  txtusername: {
+    backgroundColor: '#99c84a',
+    borderRadius: 5,
+    color: 'white',
+    padding: 5,
+    fontSize: 15,
     fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  buttonLabel: {
+    color: 'white',
+    padding: 5,
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 
-const mapStateToProps = state => {
-  const {friends} = state;
-  return {friends};
-};
-
-export default connect(mapStateToProps)(Home);
+export default Home;

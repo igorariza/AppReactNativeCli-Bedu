@@ -1,13 +1,26 @@
 import React from 'react';
+
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import Home from '../screens/container/Home';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+// import {ContactStackNavigator} from './StackNavigator';
+import NavigationTab from './NavigationTab';
 
 const Drawer = createDrawerNavigator();
 
-export default function NavigationDrawer() {
+const DrawerNavigator = () => {
   return (
-    <Drawer.Navigator initialRouteName="Login">
-      <Drawer.Screen name="Home" component={Home} />
+    <Drawer.Navigator>
+      <Drawer.Screen
+        name="Home"
+        component={NavigationTab}
+        options={{
+          title: 'Home',
+          drawerIcon: () => <Icon name="home" size={20} color="black" />,
+        }}
+      />
+      {/* <Drawer.Screen name="Contact" component={ContactStackNavigator} /> */}
     </Drawer.Navigator>
   );
-}
+};
+
+export default DrawerNavigator;

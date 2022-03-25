@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
+import 'react-native-gesture-handler';
 import Spinner from 'react-native-loading-spinner-overlay';
 import {useNavigation} from '@react-navigation/native';
 import {useFormik} from 'formik';
@@ -31,7 +32,7 @@ const Login = () => {
   function login(emailUser, passwordUser) {
     //Login exitoso
     setLoading(false);
-    navigation.navigate('TabLayout');
+    navigation.navigate('DrawerNavigation');
   }
 
   return (
