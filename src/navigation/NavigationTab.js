@@ -1,11 +1,12 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Image} from 'react-native';
 import NavigationHome from './NavigationHome';
 //import SearchScreen from '../screens/components/search/search';
 import StrainsScreen from '../screens/components/strains/strains';
 import FriendsScreen from '../screens/container/FriendsScreen';
+import {Ionicons} from '@expo/vector-icons';
+// const myIcon = <Icon name="rocket" size={30} color="#900" />;
 
 const Tab = createBottomTabNavigator();
 const TabLayout = () => {
@@ -28,8 +29,11 @@ const TabLayout = () => {
         options={{
           headerShown: false,
           tabBarLabel: 'Home',
-          tabBarIcon: (color, size) => (
-            <Icon name="home" size={23} color={color} />
+          tabBarIcon: ({color}) => (
+            <Image
+              source={require('../../assets/ic_home/ic_home.png')}
+              style={{width: 30, height: 30}}
+            />
           ),
         }}
       />
@@ -39,9 +43,6 @@ const TabLayout = () => {
         component={FriendsScreen}
         options={{
           tabBarLabel: 'Friends',
-          tabBarIcon: (color, size) => (
-            <Icon name="home" size={23} color={color} />
-          ),
         }}
       />
       {/* Tab-DealsScreen */}
@@ -60,9 +61,9 @@ const TabLayout = () => {
         component={StrainsScreen}
         options={{
           tabBarLabel: 'Strains',
-          tabBarIcon: (color, size) => (
-            <Icon name="leaf" size={23} color={color} />
-          ),
+          // tabBarIcon: (color, size) => (
+          //   <Icon name="leaf" size={23} color={color} />
+          // ),
         }}
       />
       {/* Tab-ProfileScreen */}
@@ -71,9 +72,9 @@ const TabLayout = () => {
         component={NavigationHome}
         options={{
           tabBarLabel: 'More',
-          tabBarIcon: (color, size) => (
-            <Icon name="plus" size={23} color={color} />
-          ),
+          // tabBarIcon: (color, size) => (
+          //   <Icon name="plus" size={23} color={color} />
+          // ),
         }}
       />
     </Tab.Navigator>

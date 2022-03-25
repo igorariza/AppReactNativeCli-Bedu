@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import NavigationTab from './NavigationTab';
 
 const Drawer = createDrawerNavigator();
-
+const icon = <Icon name={'home'} solid />;
 const DrawerNavigator = () => {
   return (
     <Drawer.Navigator>
@@ -15,7 +15,7 @@ const DrawerNavigator = () => {
         component={NavigationTab}
         options={{
           title: 'Home',
-          drawerIcon: () => <Icon name="home" size={20} color="black" />,
+          drawerIcon: () => icon,
         }}
       />
       {/* <Drawer.Screen name="Contact" component={ContactStackNavigator} /> */}
