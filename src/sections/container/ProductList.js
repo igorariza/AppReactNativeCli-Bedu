@@ -18,9 +18,15 @@ window.server = createServer({
     this.get('/api/products', () => {
       return {
         products: [
-          {id: 1, name: 'Inception', year: 2010},
-          {id: 2, name: 'Interstellar', year: 2014},
-          {id: 3, name: 'Dunkirk', year: 2017},
+          {id: 1, name: 'Inception', year: 2010, description: 'Lorem ipsum'},
+          {id: 2, name: 'Interstellar', year: 2014, description: 'Lorem ipsum'},
+          {id: 3, name: 'Dunkirk', year: 2017, description: 'Lorem ipsum'},
+          {
+            id: 4,
+            name: 'The Dark Knight',
+            year: 2008,
+            description: 'Lorem ipsum',
+          },
         ],
       };
     });
@@ -36,7 +42,21 @@ const ProductList = props => {
       .then(res => res.json())
       .then(json => setProducts(json.products));
   }, []);
+  // Consumo de API con Axios
+  // const getCharacters = async id => {
+  //   const response = await axios.get<CharactersResponse>(
+  //     'https://rickandmortyapi.com/api/character',
+  //     {
+  //       params: {
+  //         page: 1,
+  //       },
+  //     },
+  //   );
 
+  //   return response.data;
+  // };
+
+  // Consumo de API con fetch
   // const getProducts = async id => {
   //   fetch(
   //     `https://api-gcp.sige-edu.com:8000/api/courses/academiccharge/bystudent/${codeStudent}`,
@@ -64,8 +84,8 @@ const ProductList = props => {
   const keyExtractor = item => item.id.toString();
   const renderEmpty = () => <Empty text="No hay sugerencias" />;
   const viewProduct = item => {
-    navigation.navigate('Product', {
-      product: item,
+    navigation.navigate('Details', {
+      item: item,
     });
   };
   const renderItem = ({item}) => {
