@@ -9,12 +9,14 @@ import {
   Image,
   TouchableOpacity,
   Alert,
+  YellowBox,
 } from 'react-native';
 import 'react-native-gesture-handler';
 import Spinner from 'react-native-loading-spinner-overlay';
 import {useNavigation} from '@react-navigation/native';
 import {useFormik} from 'formik';
 
+YellowBox.ignoreWarnings(['Warning: ...']);
 const Login = () => {
   const formik = useFormik({
     initialValues: {
