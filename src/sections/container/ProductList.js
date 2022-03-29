@@ -18,10 +18,15 @@ window.server = createServer({
     this.get('/api/products', () => {
       return {
         products: [
-          {id: 1, name: 'Inception', year: 2010},
-          {id: 2, name: 'Interstellar', year: 2014},
-          {id: 3, name: 'Dunkirk', year: 2017},
-          {id: 4, name: 'The Dark Knight', year: 2008},
+          {id: 1, name: 'Inception', year: 2010, description: 'Lorem ipsum'},
+          {id: 2, name: 'Interstellar', year: 2014, description: 'Lorem ipsum'},
+          {id: 3, name: 'Dunkirk', year: 2017, description: 'Lorem ipsum'},
+          {
+            id: 4,
+            name: 'The Dark Knight',
+            year: 2008,
+            description: 'Lorem ipsum',
+          },
         ],
       };
     });
@@ -66,7 +71,7 @@ const ProductList = props => {
   const renderEmpty = () => <Empty text="No hay sugerencias" />;
   const viewProduct = item => {
     navigation.navigate('Details', {
-      product: item,
+      item: item,
     });
   };
   const renderItem = ({item}) => {

@@ -60,7 +60,7 @@ const makeHTML = id => {
 };
 
 function Details(props) {
-  console.log('props..detail', props);
+  console.log('props..detail ', props.route.params);
   const [secctions, setSecctions] = useState([]);
   //   const {codeAcademicCharge} = props.route.params.item;
 
@@ -120,7 +120,7 @@ function Details(props) {
         />
       </View>
       <View style={styles.top}>
-        <Text>image</Text>
+        <Text>{props.route.params.item.name}</Text>
       </View>
       <View style={styles.bottom}>
         <View style={styles.details}>
@@ -130,7 +130,9 @@ function Details(props) {
               uri: tempImg[Math.floor(Math.random() * 20)],
             }}
           />
-          <Text style={styles.description}>description</Text>
+          <Text style={styles.description}>
+            {props.route.params.item.description}
+          </Text>
         </View>
       </View>
       <View style={styles.trailer}>

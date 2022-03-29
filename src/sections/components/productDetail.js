@@ -39,6 +39,7 @@ const tempImg = [
 ];
 
 function ProductDetail(props) {
+  console.log('props prduct detail', props);
   moment.locale('en');
   const [isModalVisible, setModalVisible] = useState(false);
   const toggleModal = () => {
