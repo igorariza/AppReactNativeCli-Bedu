@@ -1,17 +1,16 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Image} from 'react-native';
-import NavigationHome from './NavigationHome';
+import Home from '../screens/container/Home';
 import Perfil from '../screens/container/Perfil'
 import MisViajes from '../screens/container/MisViajes'
 
 
 const Tab = createBottomTabNavigator();
-const TabLayout = () => {
+const TabLayout = (route) => {  
+  console.log(route.route.params);      
   return (
-    <Tab.Navigator
-      initialRouteName="Deals"
+    <Tab.Navigator      
       screenOptions={{
         activeTintColor: '#e91e63',
         labelStyle: {
@@ -23,8 +22,8 @@ const TabLayout = () => {
       }}>
       {/* Tab-HomeScreen */}
       <Tab.Screen
-        name="Home"
-        component={NavigationHome}
+        name="MisViajesTab"              
+        component={MisViajes}
         options={{
           headerShown: false,
           tabBarLabel: '',
@@ -33,19 +32,20 @@ const TabLayout = () => {
       />      
       {/* Tab-DealsScreen */}
       <Tab.Screen
-        name="Deals"
+        name="ViajesTab"
         options={{
           headerShown: false,
           tabBarLabel: '',
           tabBarIcon: () => renderImageViaje(),
         }}
-        component={NavigationHome}
+        component={Home}
       />      
       {/* Tab-ProfileScreen */}
       <Tab.Screen
-        name="More"
-        component={NavigationHome}
+        name="SettingsTab"
+        component={Perfil}
         options={{
+          headerShown: false,
           tabBarLabel: '',
           tabBarIcon: () => renderImageSetting(),
         }}

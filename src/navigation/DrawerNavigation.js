@@ -1,7 +1,9 @@
 import React from 'react';
 import { Image } from 'react-native';
-import { createDrawerNavigator,DrawerContentScrollView,DrawerItemList,
-  DrawerItem } from '@react-navigation/drawer';
+import {
+  createDrawerNavigator, DrawerContentScrollView, DrawerItemList,
+  DrawerItem
+} from '@react-navigation/drawer';
 import NavigationTab from './NavigationTab';
 import { useNavigation } from '@react-navigation/native';
 import Store from '../store/store';
@@ -9,21 +11,22 @@ import Store from '../store/store';
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
-
   return (
-    <Drawer.Navigator initialRouteName="Viajes" 
+    <Drawer.Navigator initialRouteName="Viajes"
       drawerContent={(props) => <CustomDrawerContent {...props} />}>
       <Drawer.Screen
         name="Viajes"
         component={NavigationTab}
+        initialParams={{ ruta: "ViajesTab" }}
         options={{
           title: 'Viajes',
           drawerIcon: () => renderImageViaje()
         }}
       />
       <Drawer.Screen
-        name="MiViajes"
+        name="MisViajes"
         component={NavigationTab}
+        initialParams={{ ruta: "MisViajesTab" }}
         options={{
           title: 'Mis Viajes',
           drawerIcon: () => renderImageMisViajes()
@@ -32,11 +35,12 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name="Perfil"
         component={NavigationTab}
+        initialParams={{ ruta: "SettingsTab" }}
         options={{
           title: 'Perfil',
           drawerIcon: () => renderImageSetting()
         }}
-      />      
+      />
     </Drawer.Navigator>
   );
 };

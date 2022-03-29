@@ -7,7 +7,7 @@ const Perfil = props => {
   const navigation = useNavigation();  
   return (
     <Fragment>     
-        <label>settings</label>
+        <Text>settings</Text>
     </Fragment>
   );
 };

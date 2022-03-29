@@ -7,7 +7,7 @@ const MisViajes = props => {
   const navigation = useNavigation();  
   return (
     <Fragment> 
-        <label>Mis Viajes</label>    
+        <Text>Mis Viajes</Text>    
     </Fragment>
   );
 };
