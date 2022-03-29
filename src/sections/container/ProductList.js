@@ -65,7 +65,7 @@ const ProductList = props => {
   const keyExtractor = item => item.id.toString();
   const renderEmpty = () => <Empty text="No hay sugerencias" />;
   const viewProduct = item => {
-    navigation.navigate('Product', {
+    navigation.navigate('Details', {
       product: item,
     });
   };

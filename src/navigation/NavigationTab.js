@@ -2,13 +2,14 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Image} from 'react-native';
 import NavigationHome from './NavigationHome';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import More from '../screens/container/More';
+import Orders from '../screens/container/Orders';
 
 const Tab = createBottomTabNavigator();
 const TabLayout = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Deals"
+      initialRouteName="Home"
       screenOptions={{
         activeTintColor: '#e91e63',
         labelStyle: {
@@ -20,13 +21,16 @@ const TabLayout = () => {
       }}>
       {/* Tab-HomeScreen */}
       <Tab.Screen
-        name="Home"
-        component={NavigationHome}
+        name="Orders"
+        component={Orders}
         options={{
           headerShown: false,
-          tabBarLabel: 'Home',
-          tabBarIcon: (color, size) => (
-            <Icon name="beer" size={23} color={color}/>
+          tabBarLabel: 'Orders',
+          tabBarIcon: ({color}) => (
+            <Image
+              source={require('../../assets/ic_home/ic_home.png')}
+              style={{width: 30, height: 30}}
+            />
           ),
         }}
       />
@@ -43,7 +47,7 @@ const TabLayout = () => {
       /> */}
       {/* Tab-DealsScreen */}
       <Tab.Screen
-        name="Deals"
+        name="Home"
         options={{
           headerShown: false,
           tabBarLabel: '',
@@ -65,8 +69,9 @@ const TabLayout = () => {
       {/* Tab-ProfileScreen */}
       <Tab.Screen
         name="More"
-        component={NavigationHome}
+        component={More}
         options={{
+          headerShown: false,
           tabBarLabel: 'More',
           tabBarIcon: ({color}) => (
             <Image
@@ -84,6 +89,7 @@ export default TabLayout;
 function renderImageMenu(image) {
   return (
     <Image
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         width: 30,
         height: 30,

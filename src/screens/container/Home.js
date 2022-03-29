@@ -15,11 +15,11 @@ const Home = props => {
   };
   return (
     <Fragment>
-      <Header>
+      {/* <Header>
         <TouchableOpacity onPress={handleClose} style={styles.button}>
           <Text style={styles.buttonLabel}>Cerrar Sesión</Text>
         </TouchableOpacity>
-      </Header>
+      </Header> */}
       <ProductList />
     </Fragment>
   );

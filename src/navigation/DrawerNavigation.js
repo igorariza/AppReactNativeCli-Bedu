@@ -26,8 +26,8 @@ const DrawerNavigator = () => {
     const handleHome = () => {
       navigation.navigate('Home');
     };
-    const handleDeals = () => {
-      navigation.navigate('Deals');
+    const handleOrders = () => {
+      navigation.navigate('Orders');
     };
     const handleMore = () => {
       navigation.navigate('More');
@@ -42,9 +42,9 @@ const DrawerNavigator = () => {
         />
         <DrawerItem label="Home" onPress={handleHome} icon={renderImageHome} />
         <DrawerItem
-          label="Deals"
-          onPress={handleDeals}
-          icon={renderImageDeals}
+          label="Orders"
+          onPress={handleOrders}
+          icon={renderImageOrders}
         />
         <DrawerItem label="More" onPress={handleMore} icon={renderImageMore} />
       </DrawerContentScrollView>
@@ -100,12 +100,23 @@ const styles = {
 };
 function renderImageCerrarSesion(image) {
   return (
-    <Icon name="sign-out-alt" size={20} color="black" />
+    <Image
+      // eslint-disable-next-line react-native/no-inline-styles
+      style={{
+        width: 24,
+        height: 24,
+        top: 5,
+        marginLeft: 5,
+        marginRight: 5,
+      }}
+      source={require('../../assets/ic_settings/ic_settings.png')}
+    />
   );
 }
 function renderImageHome(image) {
   return (
     <Image
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         width: 24,
         height: 24,
@@ -117,9 +128,10 @@ function renderImageHome(image) {
     />
   );
 }
-function renderImageDeals(image) {
+function renderImageOrders(image) {
   return (
     <Image
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         width: 24,
         height: 24,
@@ -134,6 +146,7 @@ function renderImageDeals(image) {
 function renderImageMore(image) {
   return (
     <Image
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         width: 24,
         height: 24,
