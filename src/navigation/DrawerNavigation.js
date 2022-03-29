@@ -26,8 +26,8 @@ const DrawerNavigator = () => {
     const handleHome = () => {
       navigation.navigate('Home');
     };
-    const handleDeals = () => {
-      navigation.navigate('Deals');
+    const handleOrders = () => {
+      navigation.navigate('Orders');
     };
     const handleMore = () => {
       navigation.navigate('More');
@@ -42,9 +42,9 @@ const DrawerNavigator = () => {
         />
         <DrawerItem label="Home" onPress={handleHome} icon={renderImageHome} />
         <DrawerItem
-          label="Deals"
-          onPress={handleDeals}
-          icon={renderImageDeals}
+          label="Orders"
+          onPress={handleOrders}
+          icon={renderImageOrders}
         />
         <DrawerItem label="More" onPress={handleMore} icon={renderImageMore} />
       </DrawerContentScrollView>
@@ -80,6 +80,7 @@ const DrawerNavigator = () => {
 function renderImageCerrarSesion(image) {
   return (
     <Image
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         width: 24,
         height: 24,
@@ -94,6 +95,7 @@ function renderImageCerrarSesion(image) {
 function renderImageHome(image) {
   return (
     <Image
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         width: 24,
         height: 24,
@@ -105,9 +107,10 @@ function renderImageHome(image) {
     />
   );
 }
-function renderImageDeals(image) {
+function renderImageOrders(image) {
   return (
     <Image
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         width: 24,
         height: 24,
@@ -122,6 +125,7 @@ function renderImageDeals(image) {
 function renderImageMore(image) {
   return (
     <Image
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         width: 24,
         height: 24,
