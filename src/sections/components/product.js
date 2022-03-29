@@ -5,7 +5,7 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 const tempColor = ['#FF6347', '#FFA500', '#FFD700', '#32CD32'];
 
 function Product(props) {
-  console.log('props Product', props);
+  console.log('props product view', props);
   return (
     <View style={styles.cardproduct}>
       <TouchableOpacity onPress={props.onPress}>
