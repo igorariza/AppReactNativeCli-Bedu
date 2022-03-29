@@ -10,7 +10,8 @@ const Tab = createBottomTabNavigator();
 const TabLayout = (route) => {  
   console.log(route.route.params);      
   return (
-    <Tab.Navigator      
+    <Tab.Navigator 
+      initialRouteName={route.route.params.ruta}     
       screenOptions={{
         activeTintColor: '#e91e63',
         labelStyle: {
