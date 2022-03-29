@@ -1,9 +1,12 @@
-import React from 'react';
-import { View } from 'react-native';
+import {Text, View} from 'react-native';
+import React, {Component} from 'react';
 
-const Profile = () => {
-return (
-    <View/>
-)
-};
-export default Profile;
+export default class Profile extends Component {
+  render() {
+    return (
+      <View>
+        <Text>Profile</Text>
+      </View>
+    );
+  }
+}

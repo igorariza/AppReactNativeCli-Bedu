@@ -1,9 +1,12 @@
-import React from 'react';
-import { View } from 'react-native';
+import {Text, View} from 'react-native';
+import React, {Component} from 'react';
 
-const Settings = () => {
-return(
-    <View/>
-)
-};
-export default Settings;
+export default class Settings extends Component {
+  render() {
+    return (
+      <View>
+        <Text>Settings</Text>
+      </View>
+    );
+  }
+}

@@ -11,6 +11,7 @@ function Product(props) {
       <TouchableOpacity onPress={props.onPress}>
         <View style={styles.product}>
           <Text style={styles.productName}>{props.product.name}</Text>
+          <Text style={styles.productPrice}>{props.product.year}</Text>
         </View>
       </TouchableOpacity>
     </View>

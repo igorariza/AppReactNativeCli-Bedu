@@ -1,17 +1,44 @@
 import React from 'react';
-
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-// import {ContactStackNavigator} from './StackNavigator';
+import Store from '../store/store';
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItem,
+  DrawerItemList,
+} from '@react-navigation/drawer';
+import {useNavigation} from '@react-navigation/native';
 import NavigationTab from './NavigationTab';
 import Profile from '../screens/container/Profile';
 import Settings from '../screens/container/Settings';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
+  function CustomDrawerContent(props) {
+    const navigation = useNavigation();
+    const handleClose = () => {
+      Store.remove({
+        key: 'userLogin',
+      });
+      navigation.navigate('Login');
+    };
+    return (
+      <DrawerContentScrollView {...props}>
+        <DrawerItemList {...props} />
+        <DrawerItem
+          label="Cerrar Sesión"
+          onPress={handleClose}
+          icon={renderImageCerrarSesion}
+        />
+      </DrawerContentScrollView>
+    );
+  }
+
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator
+      initialRouteName="Home"
+      drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen
         name="Home"
         component={NavigationTab}
@@ -22,6 +49,7 @@ const DrawerNavigator = () => {
               name="home"
               style={[focused ? styles.drawerActive : styles.drawerInActive]}
               size={20}
+
             />
           ),
         }}
@@ -42,8 +70,6 @@ const DrawerNavigator = () => {
           drawerIcon: () => <Icon name="wrench" size={20} color="black" />,
         }}
       />
-
-      <Drawer.Screen name="Logout" component={Profile} />
     </Drawer.Navigator>
   );
 };
@@ -56,5 +82,10 @@ const styles = {
     color: '#aeaeae',
   },
 };
+function renderImageCerrarSesion(image) {
+  return (
+    <Icon name="sign-out-alt" size={20} color="black" />
+  );
+}
 
 export default DrawerNavigator;

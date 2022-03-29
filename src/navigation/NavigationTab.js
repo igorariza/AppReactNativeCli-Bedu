@@ -1,11 +1,8 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Image} from 'react-native';
 import NavigationHome from './NavigationHome';
-//import SearchScreen from '../screens/components/search/search';
-import StrainsScreen from '../screens/components/strains/strains';
-import FriendsScreen from '../screens/container/FriendsScreen';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Tab = createBottomTabNavigator();
 const TabLayout = () => {
@@ -71,8 +68,11 @@ const TabLayout = () => {
         component={NavigationHome}
         options={{
           tabBarLabel: 'More',
-          tabBarIcon: (color, size) => (
-            <Icon name="plus" size={23} color={color} />
+          tabBarIcon: ({color}) => (
+            <Image
+              source={require('../../assets/icons-more.png')}
+              style={{width: 30, height: 30}}
+            />
           ),
         }}
       />
