@@ -23,6 +23,15 @@ const DrawerNavigator = () => {
       });
       navigation.navigate('Login');
     };
+    const handleHome = () => {
+      navigation.navigate('Home');
+    };
+    const handleDeals = () => {
+      navigation.navigate('Deals');
+    };
+    const handleMore = () => {
+      navigation.navigate('More');
+    };
     return (
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
@@ -31,6 +40,13 @@ const DrawerNavigator = () => {
           onPress={handleClose}
           icon={renderImageCerrarSesion}
         />
+        <DrawerItem label="Home" onPress={handleHome} icon={renderImageHome} />
+        <DrawerItem
+          label="Deals"
+          onPress={handleDeals}
+          icon={renderImageDeals}
+        />
+        <DrawerItem label="More" onPress={handleMore} icon={renderImageMore} />
       </DrawerContentScrollView>
     );
   }
@@ -87,5 +103,46 @@ function renderImageCerrarSesion(image) {
     <Icon name="sign-out-alt" size={20} color="black" />
   );
 }
-
+function renderImageHome(image) {
+  return (
+    <Image
+      style={{
+        width: 24,
+        height: 24,
+        top: 5,
+        marginLeft: 5,
+        marginRight: 5,
+      }}
+      source={require('../../assets/ic_home/ic_home.png')}
+    />
+  );
+}
+function renderImageDeals(image) {
+  return (
+    <Image
+      style={{
+        width: 24,
+        height: 24,
+        top: 5,
+        marginLeft: 5,
+        marginRight: 5,
+      }}
+      source={require('../../assets/ic_home/ic_home.png')}
+    />
+  );
+}
+function renderImageMore(image) {
+  return (
+    <Image
+      style={{
+        width: 24,
+        height: 24,
+        top: 5,
+        marginLeft: 5,
+        marginRight: 5,
+      }}
+      source={require('../../assets/ic_home/ic_home.png')}
+    />
+  );
+}
 export default DrawerNavigator;
