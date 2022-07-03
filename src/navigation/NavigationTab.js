@@ -4,7 +4,6 @@ import {Image} from 'react-native';
 import NavigationHome from './NavigationHome';
 import More from '../screens/container/More';
 import Orders from '../screens/container/Orders';
-import Hello from '../components/Hello';
 
 const Tab = createBottomTabNavigator();
 const TabLayout = () => {
@@ -50,7 +49,7 @@ const TabLayout = () => {
       {/* Tab-ProfileScreen */}
       <Tab.Screen
         name="More"
-        component={Hello}
+        component={More}
         options={{
           headerShown: false,
           tabBarLabel: 'More',
